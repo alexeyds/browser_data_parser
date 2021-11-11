@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require 'benchmark'
+require_relative "../lib/browser_data_parser"
+
+def get_file_path(message, default:)
+  print "#{message} (#{default}): "
+  file_path = gets.chomp
+  file_path.empty? ? default : file_path
+end
+
+input_file_path = get_file_path("Enter name of the file to parse", default: 'data_large.txt')
+output_file_path = get_file_path("Enter name of the output file", default: 'data_large_report.json')
+
+puts "Starting file parsing process, this might take a minute..."
+
+bench = Benchmark.measure do
+  BrowserDataParser::ParseFile.new.call(input_file_path: input_file_path, output_file_path: output_file_path, pretty: true)
+end
+
+puts "Done in #{bench.real}s"
