@@ -1,3 +1,5 @@
+require 'date'
+
 module BrowserDataParser
   class Session
     attr_reader :id, :user_id, :duration_minutes, :browser, :date
