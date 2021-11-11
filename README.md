@@ -1,39 +1,20 @@
 # BrowserDataParser
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/browser_data_parser`. To experiment with that code, run `bin/console` for an interactive prompt.
+Execute parser as a ruby shell script: ```bin/parse_file```
 
-TODO: Delete this and the text above, and describe your gem
+Execute parser programmatically: 
 
-## Installation
+```rb
+require_relative "lib/browser_data_parser"
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'browser_data_parser'
+BrowserDataParser::ParseFile.new.call(
+    input_file_path: 'data_large.txt',
+    output_file_path: 'data_large_report.json',
+    pretty: true
+)
 ```
 
-And then execute:
+To run parser's test suite:
 
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install browser_data_parser
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/browser_data_parser.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+`bundle install`\
+`rspec`
