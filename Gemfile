@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+ruby '~> 3.0'
 
-# Specify your gem's dependencies in browser_data_parser.gemspec
-gemspec
+source "https://rubygems.org"
 
 gem "rspec", "~> 3.0"
