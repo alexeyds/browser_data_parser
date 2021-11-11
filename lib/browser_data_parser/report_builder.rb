@@ -51,7 +51,7 @@ module BrowserDataParser
         'totalTime' => minutes_text(sessions.sum(&:duration_minutes)),
         'longestSession' => minutes_text(sessions.map(&:duration_minutes).max),
         'browsers' => sessions.map(&:browser).sort.join(', '),
-        'usedIe' => sessions.any?(&:is_ie?),
+        'usedIE' => sessions.any?(&:is_ie?),
         'alwaysUsedChrome' => sessions.all?(&:is_chrome?),
         'dates' => sessions.map(&:date).sort.reverse
       }

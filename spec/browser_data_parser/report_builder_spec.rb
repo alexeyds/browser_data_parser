@@ -81,17 +81,17 @@ RSpec.describe BrowserDataParser::ReportBuilder do
 
       user_stats = get_user_stats(user)
       expect(user_stats['browsers']).to eq("#{session_1.browser}, #{session_2.browser}")
-      expect(user_stats['usedIe']).to eq(false)
+      expect(user_stats['usedIE']).to eq(false)
       expect(user_stats['alwaysUsedChrome']).to eq(false)
     end
 
-    it 'sets usedIe: true if there is at least one IE session' do
+    it 'sets usedIE: true if there is at least one IE session' do
       builder.current_user = user
       builder.add_session(create(:ie_session))
       builder.add_session(create(:chrome_session))
 
       user_stats = get_user_stats(user)
-      expect(user_stats['usedIe']).to eq(true)
+      expect(user_stats['usedIE']).to eq(true)
       expect(user_stats['alwaysUsedChrome']).to eq(false)
     end
 
